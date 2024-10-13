@@ -4,15 +4,15 @@
 
 using namespace std;
 
-Romanist::Romanist() : name(""), years(""), books(""), bio("") {}
+Romanist::Romanist() : name(""), years(""), books(""), bio("") {cout << "Вызван конструктор без параметров для Romanist\n";}
 
 Romanist::Romanist(const string& n, const string& y, const string& b, const string& bio)
-    : name(n), years(y), books(b), bio(bio) {}
+    : name(n), years(y), books(b), bio(bio) {cout << "Вызван конструктор с параметрами для Romanist\n";}
 
 Romanist::Romanist(const Romanist& other)
-    : name(other.name), years(other.years), books(other.books), bio(other.bio) {}
+    : name(other.name), years(other.years), books(other.books), bio(other.bio) {cout << "Вызван конструктор копирования для Romanist\n";}
 
-Romanist::~Romanist() {}
+Romanist::~Romanist() {cout << "Вызван деструктор для Romanist\n";}
 
 void Romanist::set_name(string n) {
     name = n;
@@ -49,22 +49,24 @@ string Romanist::get_bio() {
 void Romanist::display_obj() {
     cout << "Romanist Name: " << name << endl;
     cout << "Years: " << years << endl;
-    cout << "Books: " << poems << endl;
+    cout << "Books: " << books << endl;
     cout << "Bio: " << bio << endl;
 }
 
 void Romanist::change_info() {
-    cout << "Enter new name: ";
+    cin.ignore();
+    cout << "Enter new name: \n";
     getline(cin, name);
-    cout << "Enter new years: ";
+    cout << "Enter new years: \n";
     getline(cin, years);
-    cout << "Enter new books: ";
-    getline(cin, poems);
-    cout << "Enter new bio: ";
+    cout << "Enter new books: \n";
+    getline(cin, books);
+    cout << "Enter new bio: \n";
     getline(cin, bio);
 }
 
 void Romanist::save_in_file(ostream& out) {
+    out << "Romanist" << endl;
     out << name << endl;
     out << years << endl;
     out << books << endl;

@@ -25,4 +25,4 @@ class Poet: public Base {
         void save_in_file(ostream&) override;
         void load_from_file(istream&) override;
 
-}       
+};

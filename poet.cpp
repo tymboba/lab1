@@ -4,13 +4,13 @@
 
 using namespace std;
 
-Poet::Poet() : name(""), years(""), poems("") {}
+Poet::Poet() : name(""), years(""), poems("") {cout << "Вызван конструктор без параметров для Poet\n";}
 
-Poet::Poet(const string& n, const string& y, const string& p) : name(n), years(y), poems(p) {}
+Poet::Poet(const string& n, const string& y, const string& p) : name(n), years(y), poems(p) {cout << "Вызван конструктор с параметрами для Poet\n";}
 
-Poet::Poet(const Poet& other) : name(other.name), years(other.years), poems(other.poems) {}
+Poet::Poet(const Poet& other) : name(other.name), years(other.years), poems(other.poems) {cout << "Вызван конструктор копирования для Poet\n";}
 
-Poet::~Poet() {}
+Poet::~Poet() {cout << "Вызван деструктор для Poet\n";}
 
 void Poet::set_name(string n) {
     name = n;
@@ -43,15 +43,17 @@ void Poet::display_obj() {
 }
 
 void Poet::change_info() {
-    cout << "Enter new name: ";
+    cin.ignore();
+    cout << "Enter new name: \n";
     getline(cin, name);
-    cout << "Enter new years: ";
+    cout << "Enter new years: \n";
     getline(cin, years);
-    cout << "Enter new poems: ";
+    cout << "Enter new poems: \n";
     getline(cin, poems);
 }
 
 void Poet::save_in_file(ostream& out) {
+    out << "Poet" << endl;
     out << name << endl;
     out << years << endl;
     out << poems << endl;
